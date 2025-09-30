@@ -1,0 +1,225 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Base Styles ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: #fff;
+  background: #0d0d0d; /* dark background */
+  scroll-behavior: smooth;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===== Code Background Effect ===== */
+.code-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(0, 255, 0, 0.15); /* glowing faint green */
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: pre;
+  z-index: -1; /* stays behind content */
+  padding: 40px;
+  user-select: none;
+  overflow: hidden;
+  background: transparent;
+  animation: codeFloat 25s linear infinite;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+/* Floating scroll effect */
+@keyframes codeFloat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-200px);
+  }
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00ffcc;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: #fff;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: #00ffcc;
+  width: 0;
+  transition: width 0.3s ease;
+  margin-top: 4px;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  font-size: 1.6rem;
+  display: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 5%;
+  color: #fff;
+}
+
+.hero-content {
+  flex: 1 1 400px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00ffcc;
+}
+
+.hero-content h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #ccc;
+}
+
+.hero-image {
+  flex: 1 1 300px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.hero-image img {
+  max-width: 280px;
+  border-radius: 50%;
+  border: 4px solid #00ffcc;
+  box-shadow: 0 8px 20px rgba(0,255,200,0.3);
+}
+
+/* ===== About Section ===== */
+.about {
+  padding: 3rem 5%;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00ffcc;
+}
+
+.about p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+/* ===== Contact Section ===== */
+.contact {
+  padding: 3rem 5%;
+  background: #00ffcc;
+  color: #0d0d0d;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  background: #0d0d0d;
+  color: #00ffcc;
+  padding: 0.7rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contact-links a:hover {
+  background: #111;
+  transform: translateY(-3px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 60px;
+    right: 5%;
+    width: 200px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    padding: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}
